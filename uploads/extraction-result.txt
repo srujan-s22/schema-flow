@@ -1,0 +1,37 @@
+--- SUMMARY ---
+A digital-to-analog (D/A) converter requires a resistive network, a register, and level amplifiers. The register stores digital information and the level amplifiers ensure that the digital signals presented to the network are of the same level and constant.
+
+--- QUESTIONS ---
+What is the purpose of the register in a D/A converter? What role do level amplifiers play in a D/A converter? How does the gating scheme work in entering information into the register?
+
+--- BULLET POINTS ---
+- A resistive divider or ladder can be used as a basis for a digital-to-analog converter.
+- Additional circuitry is needed to complete the design of the D/A converter.
+- A register and level amplifiers are necessary components in the D/A converter.
+
+--- RAW TEXT ---
+Either the resistive divider or the ladder can be used as the basis for a digital-to-analog (D/A) converter. It is
+in the resistive network that the actual translation from a digital signal to an analog voltage takes place. There
+is, however, the need for additional circuitry to complete the design of the D/A converter.
+
+As an integral part of the D/A converter there must be a register that can be used to store the digital
+information. This register could be any one of the many types discussed in previous chapters. The simplest
+register is formed by use of RS flip-flops, with one flip-flop per bit. There must also be level amplifiers
+between the register and the resistive network to ensure that the digital signals presented to the network are all
+of the same level and are constant. Finally, there must be some form of gating on the input of the register such
+that the flip-flops can be set with the proper infomation from the digital system. A complete D/A converter in
+block-diagram form is shown in Fig. 12.13a.
+
+Let us expand on the block diagram shown in this Fig. 12.13a by drawing the complete schematic for a
+4-bit D/A converter as shown in Fig. 12.13b. You will recognize that the resistor network used is of the ladder
+type.
+
+The level amplifiers each have two inputs: one input is the +10 V from the precision voltage source, and
+the other is from a flip-flop. The amplifiers work in such a way that when the input from a flip-flop is high,
+the output of the amplifier is at +10 V. When the input from the flip-flop is low, the output is 0 V.
+
+The four flip-flops form the register necessary for storing the digital information. The flip-flop on the right
+represents the MSB, and the flip-flop on the left represents the LSB. Each flip-flop is a simple RS latch and
+requires a positive level at the R or § input to reset or set it. The gating scheme for entering information into
+the register is straightforward and should be easy to understand. With this particular gating scheme, the flip-
+flops need not be reset (or set) each time new information is entered. When the READ IN line goes high, only

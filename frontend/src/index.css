@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* ── Custom Palette ────────────────────────────────────────── */
+
+:root {
+  /* Soft Indigo / Violet primary Accent */
+  --color-accent: #6366f1;
+  --color-accent-hover: #4f46e5;
+  --color-accent-muted: #818cf8;
+
+  /* Teal Secondary Accent */
+  --color-teal: #14b8a6;
+  --color-teal-hover: #0d9488;
+
+  /* Standard Light Theme */
+  --color-slate-950: #0b0f1a;
+  --color-slate-900: #111827;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+  --color-slate-50:  #f8fafc;
+
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f4f6; /* gray-100 */
+  --color-border: #e5e7eb; /* gray-200 */
+
+  /* Minimal Primary Buttons: Light Theme */
+  --color-btn-primary: #111827; /* gray-900 */
+  --color-btn-text: #ffffff;
+  --color-btn-hover: #1f2937; /* gray-800 */
+  --color-btn-active: #111827;
+  --color-btn-sec: #e5e7eb;
+  --color-btn-sec-text: #111827;
+  --color-btn-sec-hover: #d1d5db;
+  --color-btn-border: rgba(0,0,0,0.1);
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Dark Mode Inversion ───────────────────────────────────────── */
+.dark {
+  /* Invert Slate structure so typography auto-flips */
+  --color-slate-950: #ffffff;
+  --color-slate-900: #ffffff; /* text-white for headings */
+  --color-slate-800: #f3f4f6;
+  --color-slate-700: #e5e7eb;
+  --color-slate-600: #d1d5db; /* Labels */
+  --color-slate-500: #9ca3af; /* Secondary text */
+  --color-slate-400: #6b7280;
+  --color-slate-300: #4b5563;
+  --color-slate-200: #374151;
+  --color-slate-100: #1f2937;
+  --color-slate-50:  #111827;
+
+  /* Deep Matte Dark Grey background */
+  --color-surface: #2a2a2a; 
+  --color-surface-alt: #1f1f1f;
+  --color-border: #374151; /* gray-700 */
+
+  /* Slightly brighten accent for dark mode */
+  --color-accent: #818cf8;
+  --color-accent-hover: #6366f1;
+  --color-accent-muted: #4f46e5;
+
+  /* Minimal Primary Buttons: Dark Theme */
+  --color-btn-primary: #ffffff;
+  --color-btn-text: #000000;
+  --color-btn-hover: #e5e7eb; /* gray-200 */
+  --color-btn-active: #d1d5db;
+  --color-btn-sec: #2a2a2a;
+  --color-btn-sec-text: #ffffff;
+  --color-btn-sec-hover: #374151;
+  --color-btn-border: rgba(255,255,255,0.08);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--color-btn-primary)] text-[var(--color-btn-text)] border border-[var(--color-btn-border)] hover:bg-[var(--color-btn-hover)] active:bg-[var(--color-btn-active)] font-semibold shadow-sm hover:shadow transition-all hover:scale-[1.02] active:scale-[0.98] opacity-100 flex items-center justify-center;
+  }
+  .btn-secondary {
+    @apply bg-[var(--color-btn-sec)] text-[var(--color-btn-sec-text)] border border-[var(--color-btn-border)] hover:bg-[var(--color-btn-sec-hover)] font-semibold shadow-sm hover:shadow transition-all hover:scale-[1.02] active:scale-[0.98] opacity-100 flex items-center justify-center;
+  }
+}
+
+/* Logo colors — hardcoded to avoid CSS variable inversion conflicts */
+.logo-colors {
+  color: #111827;
+}
+.dark .logo-colors {
+  color: #ffffff;
+}
+
+/* Smooth theme transitions globally */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Base Resets ────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface-alt);
+  color: var(--color-slate-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar (webkit) ────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 3px;
+}
